@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "pudu-openapi-skill": {
+      "source": "pudu-robotics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pudu-openapi-skill/SKILL.md",
+      "computedHash": "880df6d602862f94e8a8b1cbab56a00a7442ddb3605acdaf493534dcd22fb79b"
+    }
+  }
+}
