@@ -29,7 +29,7 @@ Auf diesem Bildschirm wählt man aus, wohin der BellaBot fahren soll. Die Ziele 
 | Ziel | Ziel | Ziel |
 |---|---|---|
 | 3d printer | Avatar | VR |
-| accenture r… (Name abgeschnitten) | kitchen | meeting |
+| accenture robot | kitchen | meeting |
 | printer | table 2 | tables |
 | trash | tv | wc |
 
