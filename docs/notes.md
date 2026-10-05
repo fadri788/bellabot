@@ -42,3 +42,23 @@ Rechts befinden sich zusätzliche Funktionen:
 - **Musiknote:** Musik während der Fahrt
 
 Oben rechts sieht man den Status (**Busy**), die WLAN-Verbindung und den Akkustand (58 %).
+
+## Teil 4 · Netzwerk-Setup
+
+**Datum:** 2026-10-05
+**Netzwerk:** Handy-Hotspot (Passwort nicht im Repo)
+
+| Gerät   | IP            |
+|---------|---------------|
+| Laptop  | 172.20.10.x   |
+| Roboter | 172.20.10.x   |
+
+Gegenprüfung in den Roboter-WLAN-Einstellungen: ✅ / ❌
+
+### Offene Ports (Roboter)
+| Port | Dienst (nmap -sV) | Bemerkung |
+|------|-------------------|-----------|
+|      |                   |           |
+
+**Tool:** Angry IP Scanner (Version …) / nmap
+**Probleme:** …
