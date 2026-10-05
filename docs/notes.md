@@ -22,3 +22,23 @@ Die Karte zeigt die Fahrwege des BellaBots aus der Vogelperspektive. Die grauen 
 Der Bereich ist ungefähr rechteckig und leicht schräg. Eine Linie in der Mitte teilt ihn in zwei Zonen, sodass der Roboter auch quer abkürzen kann. Kurze Abzweigungen links und oben führen vermutlich zu Tischen oder Haltepunkten. Unten rechts gibt es eine kleine Schlaufe mit einem Ausläufer, wahrscheinlich der Bereich der Ladestation oder des Abholpunkts.
 
 Unter der Karte kann man den **Startpunkt** auswählen, von dem aus der Roboter seine Fahrt beginnt.
+## Zielauswahl
+
+Auf diesem Bildschirm wählt man aus, wohin der BellaBot fahren soll. Die Ziele sind auf der Karte als Haltepunkte gespeichert:
+
+| Ziel | Ziel | Ziel |
+|---|---|---|
+| 3d printer | Avatar | VR |
+| accenture r… (Name abgeschnitten) | kitchen | meeting |
+| printer | table 2 | tables |
+| trash | tv | wc |
+
+Nach der Auswahl eines oder mehrerer Ziele drückt man auf **Start!** und der Roboter fährt los.
+
+Rechts befinden sich zusätzliche Funktionen:
+- **Sprechblase:** Sprachansagen bzw. Texte, die der Roboter abspielt
+- **Uhr:** Aufträge zeitlich planen
+- **Zahnrad:** Einstellungen
+- **Musiknote:** Musik während der Fahrt
+
+Oben rechts sieht man den Status (**Busy**), die WLAN-Verbindung und den Akkustand (58 %).
