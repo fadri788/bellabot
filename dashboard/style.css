@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, Arial, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 24px;
+}
+
+h2 {
+    margin: 24px 0 12px;
+    font-size: 18px;
+    color: #94a3b8;
+}
+
+/* Status-Kacheln nebeneinander */
+.kacheln {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.kachel {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.kachel .label {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
+
+.kachel .wert {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 4px;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+/* Punkte-Buttons */
+#punkte-liste {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
