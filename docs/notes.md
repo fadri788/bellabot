@@ -73,7 +73,7 @@ Gegenprüfung in den Roboter-WLAN-Einstellungen: ✅ / ❌
 | Port | Protokoll | Dienst (nmap) | Version | Bemerkung / Idee |
 |------|-----------|---------------|---------|------------------|
 | 22   | tcp       | ssh           | …       | Login nötig?     |
-| …    | …         | …             | …       | …                |
+| **BellaBot** | **10.55.74.22** | **20:50:e7:40:33:4c** | Hostname `Android.local` (mDNS) → läuft auf Android. Antwortet nicht auf ICMP-Ping. |
 
 ### Port-Scan
 - Tool: nmap 7.80 (Angry IP Scanner war für 1 Host zu langsam)
