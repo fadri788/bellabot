@@ -74,3 +74,15 @@ Gegenprüfung in den Roboter-WLAN-Einstellungen: ✅ / ❌
 |------|-----------|---------------|---------|------------------|
 | 22   | tcp       | ssh           | …       | Login nötig?     |
 | …    | …         | …             | …       | …                |
+
+### Port-Scan
+- Tool: nmap 7.80 (Angry IP Scanner war für 1 Host zu langsam)
+- Befehl: `nmap -Pn -p- -T4 10.55.74.22`
+- Dauer: ca. 228 Sekunden, alle 65'535 TCP-Ports
+
+| Port | Protokoll | Status | Dienst (nmap-Vermutung) | Bemerkung / Idee |
+|------|-----------|--------|-------------------------|------------------|
+| 8080 | tcp       | open   | http-proxy              | Einziger offener Port → vermutlich Web-Oberfläche oder HTTP-API des Roboters. Mit `-sV` und Browser genauer prüfen. |
+
+**Erkenntnis:** Alle anderen 65'534 Ports sind *closed* (nicht *filtered*).
+Kein SSH (22), kein ADB (5555) offen → der einzige Zugang übers Netz ist Port 8080.
