@@ -1,16 +1,6 @@
-"""
-Mock-Server fuers BellaBot-Dashboard
-Endpoints wie die echte Cloud-API:
-  GET  /robot/status   -> { battery, state, task }
-  GET  /points         -> { points: [...] }
-  POST /task/delivery  -> startet eine Lieferung zu einem Punkt
-  POST /command        -> pause / return
-"""
-
 from flask import Flask, jsonify, request, send_from_directory
 import time
 
-# --- KONFIGURATION (spaeter fuer "live" anpassen) ---
 USE_MOCK = True
 ROBOT_BASE_URL = "http://10.55.74.22"
 ROBOT_KEY = "DEIN_API_KEY_HIER"
@@ -21,8 +11,8 @@ MAP_POINTS = [
 ]
 
 DELIVER_SECS = 8
-RETURN_SECS  = 8
-CHARGE_SECS  = 10
+RETURN_SECS = 8
+CHARGE_SECS = 10
 
 
 class MockRobot:
@@ -55,18 +45,14 @@ class MockRobot:
 
     def status(self):
         self._tick()
-        return {
-            "battery": round(self.battery),
-            "state": self.state,
-            "task": self.task,
-        }
+        return {"battery": round(self.battery), "state": self.state, "task": self.task}
 
     def start_delivery(self, point):
         now = time.time()
         self.queue = [
             {"state": "delivering", "task": f"Unterwegs zu: {point}", "ends": now + DELIVER_SECS},
-            {"state": "returning",  "task": "Zurueck zur Basis",      "ends": now + DELIVER_SECS + RETURN_SECS},
-            {"state": "charging",   "task": "Laedt an der Basis",     "ends": now + DELIVER_SECS + RETURN_SECS + CHARGE_SECS},
+            {"state": "returning", "task": "Zurueck zur Basis", "ends": now + DELIVER_SECS + RETURN_SECS},
+            {"state": "charging", "task": "Laedt an der Basis", "ends": now + DELIVER_SECS + RETURN_SECS + CHARGE_SECS},
         ]
         self.last = now
         return {"ok": True, "message": f"Lieferung zu {point} gestartet"}
@@ -77,4 +63,54 @@ class MockRobot:
             self.queue = []
             self.state = "paused"
             self.task = "Pausiert"
-            return {"ok": True, "message":
+            return {"ok": True, "message": "Pausiert"}
+        if action == "return":
+            self.queue = [
+                {"state": "returning", "task": "Zurueck zur Basis", "ends": now + RETURN_SECS},
+                {"state": "charging", "task": "Laedt an der Basis", "ends": now + RETURN_SECS + CHARGE_SECS},
+            ]
+            self.last = now
+            return {"ok": True, "message": "Kehrt zur Basis zurueck"}
+        return {"ok": False, "message": "Unbekannter Befehl"}
+
+
+robot = MockRobot()
+app = Flask(__name__)
+
+
+@app.route("/")
+def index():
+    return send_from_directory(".", "index.html")
+
+
+@app.route("/<path:filename>")
+def static_files(filename):
+    return send_from_directory(".", filename)
+
+
+@app.route("/robot/status")
+def robot_status():
+    return jsonify(robot.status())
+
+
+@app.route("/points")
+def points():
+    return jsonify({"points": MAP_POINTS})
+
+
+@app.route("/task/delivery", methods=["POST"])
+def task_delivery():
+    point = request.json.get("point", "")
+    if point not in MAP_POINTS:
+        return jsonify({"ok": False, "message": "Unbekannter Punkt"}), 400
+    return jsonify(robot.start_delivery(point))
+
+
+@app.route("/command", methods=["POST"])
+def command():
+    action = request.json.get("action", "")
+    return jsonify(robot.command(action))
+
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=5000, debug=True)
