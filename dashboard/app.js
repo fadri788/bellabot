@@ -1,7 +1,19 @@
-// --- KONFIGURATION (spaeter fuer "live" nur das hier anpassen) ---
+// --- KONFIGURATION ---
 const API_BASE = "";   // leer = gleicher Server. Spaeter z.B. "http://10.55.74.22"
 
-// --- 1) Status alle 2 Sekunden holen (pollen) ---
+let letzterZustand = null;
+
+// --- Log-Fenster ---
+function log(text) {
+    const liste = document.getElementById("log-liste");
+    const zeit = new Date().toLocaleTimeString();
+    const zeile = document.createElement("div");
+    zeile.className = "log-zeile";
+    zeile.innerHTML = '<span class="log-zeit">' + zeit + '</span>' + text;
+    liste.prepend(zeile);   // neueste Zeile oben
+}
+
+// --- 1) Status pollen ---
 async function updateStatus() {
     try {
         const antwort = await fetch(API_BASE + "/robot/status");
@@ -18,13 +30,19 @@ async function updateStatus() {
         zustandEl.className = "wert zustand-" + daten.state;
 
         document.getElementById("aufgabe").textContent = daten.task;
+
+        // Log bei Zustandswechsel
+        if (daten.state !== letzterZustand) {
+            log("Zustand: " + daten.state);
+            letzterZustand = daten.state;
+        }
     } catch (fehler) {
         document.getElementById("zustand").textContent = "offline";
         console.error("Status konnte nicht geladen werden:", fehler);
     }
 }
 
-// --- 2) Punkte einmal laden und Buttons bauen ---
+// --- 2) Punkte laden ---
 async function ladePunkte() {
     const antwort = await fetch(API_BASE + "/points");
     const daten = await antwort.json();
@@ -49,14 +67,17 @@ async function post(pfad, koerper) {
 }
 
 function sendeZu(punkt) {
+    log("Fahrbefehl: " + punkt);
     post("/task/delivery", { point: punkt });
 }
 
 // --- 4) Buttons verbinden ---
 document.getElementById("btn-zurueck").onclick = function () {
+    log("Befehl: Zurueck zur Basis");
     post("/command", { action: "return" });
 };
 document.getElementById("btn-pause").onclick = function () {
+    log("Befehl: Pause");
     post("/command", { action: "pause" });
 };
 
@@ -64,3 +85,4 @@ document.getElementById("btn-pause").onclick = function () {
 ladePunkte();
 updateStatus();
 setInterval(updateStatus, 2000);
+log("Dashboard gestartet");
