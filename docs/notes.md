@@ -76,13 +76,15 @@ Gegenprüfung in den Roboter-WLAN-Einstellungen: ✅ / ❌
 | **BellaBot** | **10.55.74.22** | **20:50:e7:40:33:4c** | Hostname `Android.local` (mDNS) → läuft auf Android. Antwortet nicht auf ICMP-Ping. |
 
 ### Port-Scan
-- Tool: nmap 7.80 (Angry IP Scanner war für 1 Host zu langsam)
-- Befehl: `nmap -Pn -p- -T4 10.55.74.22`
-- Dauer: ca. 228 Sekunden, alle 65'535 TCP-Ports
+- Tool: nmap 7.80
+- Befehl (alle Ports): `nmap -Pn -p- -T4 10.55.74.22`  → ca. 228 s
+- Befehl (Dienst-Erkennung): `nmap -Pn -sV -p 8080 10.55.74.22`  → ca. 137 s
 
-| Port | Protokoll | Status | Dienst (nmap-Vermutung) | Bemerkung / Idee |
-|------|-----------|--------|-------------------------|------------------|
-| 8080 | tcp       | open   | http-proxy              | Einziger offener Port → vermutlich Web-Oberfläche oder HTTP-API des Roboters. Mit `-sV` und Browser genauer prüfen. |
+| Port | Protokoll | Status | Dienst            | Bemerkung |
+|------|-----------|--------|-------------------|-----------|
+| 8080 | tcp       | open   | HTTP (Webserver)  | Titel der Seite: "Android Debug Database" (Library von Amit Shekhar). Alle anderen 65'534 Ports: closed. |
 
-**Erkenntnis:** Alle anderen 65'534 Ports sind *closed* (nicht *filtered*).
-Kein SSH (22), kein ADB (5555) offen → der einzige Zugang übers Netz ist Port 8080.
+**Erkenntnis:**
+- Der Roboter läuft auf Android (Hostname `Android.local`).
+- Einziger offener Port: 8080. Kein SSH (22), kein ADB (5555).
+- Auf 8080 antwortet ein Webserver namens "Android Debug Database" — ein Entwickler-Tool zum Ansehen der App-Datenbank. Antwortet mit HTTP 200.
