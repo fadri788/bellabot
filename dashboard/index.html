@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BellaBot Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🤖 BellaBot Dashboard</h1>
+
+    <!-- Status-Kacheln -->
+    <section class="kacheln">
+        <div class="kachel">
+            <div class="label">Akku</div>
+            <div class="wert" id="akku">--</div>
+        </div>
+        <div class="kachel">
+            <div class="label">Zustand</div>
+            <div class="wert" id="zustand">--</div>
+        </div>
+        <div class="kachel">
+            <div class="label">Aktuelle Aufgabe</div>
+            <div class="wert" id="aufgabe">--</div>
+        </div>
+    </section>
+
+    <!-- Steuer-Buttons -->
+    <section class="steuerung">
+        <h2>Steuerung</h2>
+        <button id="btn-zurueck">Zurück zur Basis</button>
+        <button id="btn-pause">Pause</button>
+    </section>
+
+    <!-- Liste der Karten-Punkte -->
+    <section class="punkte">
+        <h2>Punkte anfahren</h2>
+        <div id="punkte-liste">
+            <!-- die Buttons kommen spaeter per JavaScript hier rein -->
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
