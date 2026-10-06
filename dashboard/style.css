@@ -123,3 +123,68 @@ button:hover { background: #2563eb; }
 }
 .log-zeit { color: #64748b; margin-right: 8px; }
 .log-zeile { color: #cbd5e1; }
+/* Katzen-Kopf */
+.kopf {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.katze {
+    position: relative;
+    width: 70px;
+    height: 60px;
+    flex-shrink: 0;
+}
+.ohr {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 24px solid #c084fc;
+}
+.ohr.links  { left: 6px;  transform: rotate(-20deg); }
+.ohr.rechts { right: 6px; transform: rotate(20deg); }
+.gesicht {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 52px;
+    background: #e9d5ff;
+    border-radius: 50%;
+}
+.auge {
+    position: absolute;
+    top: 20px;
+    width: 8px;
+    height: 12px;
+    background: #1e293b;
+    border-radius: 50%;
+}
+.auge.links  { left: 18px; }
+.auge.rechts { right: 18px; }
+.nase {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fb7185;
+}
+
+/* Buttons im Katzen-Lila */
+button { background: #a855f7; }
+button:hover { background: #9333ea; }
+.marker:hover { background: #a855f7; border-color: #a855f7; }
+.marker.aktiv { background: #a855f7; border-color: #d8b4fe; }
+@keyframes puls {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(168,85,247,0.6); }
+    50%      { box-shadow: 0 0 0 10px rgba(168,85,247,0); }
+}
