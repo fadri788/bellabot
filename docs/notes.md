@@ -62,3 +62,15 @@ Gegenprüfung in den Roboter-WLAN-Einstellungen: ✅ / ❌
 
 **Tool:** Angry IP Scanner (Version …) / nmap
 **Probleme:** …
+
+## Port-Scan BellaBot
+
+- Datum: 2026-10-06
+- Netz: Handy-Hotspot
+- Roboter-IP: <IP>
+- Befehl: `nmap -Pn -p- -T4 <IP>` + `nmap -sV -p <ports> <IP>`
+
+| Port | Protokoll | Dienst (nmap) | Version | Bemerkung / Idee |
+|------|-----------|---------------|---------|------------------|
+| 22   | tcp       | ssh           | …       | Login nötig?     |
+| …    | …         | …             | …       | …                |
