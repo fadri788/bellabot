@@ -2,7 +2,9 @@ from flask import Flask, jsonify, request, send_from_directory
 import time
 
 # --- Die Punkte deiner Karte (spaeter gegen echte Namen tauschen) ---
-MAP_POINTS = ["Tisch 1", "Tisch 2", "Tisch 3", "Kueche", "Basis"]
+MAP_POINTS = [
+    "3D Printer", "Avatar", "VR", "Accenture Robot", "Kitchen",
+    "Meeting", "Printer", "Table2", "Tables", "Trash", "TV", "WC"]
 
 
 # --- Der Fake-Roboter -----------------------------------------------
