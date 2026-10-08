@@ -88,3 +88,30 @@ Gegenprüfung in den Roboter-WLAN-Einstellungen: ✅ / ❌
 - Der Roboter läuft auf Android (Hostname `Android.local`).
 - Einziger offener Port: 8080. Kein SSH (22), kein ADB (5555).
 - Auf 8080 antwortet ein Webserver namens "Android Debug Database" — ein Entwickler-Tool zum Ansehen der App-Datenbank. Antwortet mit HTTP 200.
+
+## Jailbreaking / Rooting
+
+### Begriffe
+- **Rooting:** Sich auf einem Android- oder Linux-Gerät die höchsten Rechte verschaffen
+  ("root" = Administrator). Man darf dann alles: Systemdateien ändern, Apps entfernen,
+  Sicherheitssperren umgehen.
+- **Jailbreaking:** Dasselbe Prinzip, der Begriff kommt von Apple-Geräten (iPhone).
+  Man "bricht aus dem Gefängnis" der Herstellerbeschränkungen aus.
+- Beides nutzt meist Sicherheitslücken oder entsperrt den Bootloader.
+
+### Bezug zum BellaBot
+- Der BellaBot läuft auf Android/Linux (PUDU OS). Rooting wäre also technisch denkbar.
+- Pudu bietet offizielle Wege an: Cloud API und PUDU OS SDK. Dafür braucht es kein Rooting.
+
+### Warum wir das NICHT machen
+- **Garantie und Support weg:** Pudu hilft nicht mehr, wenn etwas kaputtgeht.
+- **Risiko "Brick":** Der Roboter kann unbrauchbar werden (Karten, Navigation, Sicherheit).
+- **Sicherheit:** Notaus, Hinderniserkennung und Tempo-Grenzen könnten beeinträchtigt werden.
+  Er fährt zwischen Menschen herum.
+- **Rechtlich und vertraglich:** Das Gerät gehört nicht uns. Lizenzbedingungen und
+  Firmenregeln verbieten so etwas meistens.
+- **Updates:** Offizielle Firmware-Updates funktionieren danach oft nicht mehr.
+
+### Fazit
+Ich weiss, was Rooting/Jailbreaking ist, und halte mich an die offiziellen Schnittstellen
+(Cloud API / SDK). Im Leitfaden steht: "verstehen, nicht erzwingen".
