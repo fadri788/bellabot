@@ -1,0 +1,8 @@
+{
+  "name": "bellabot-local-bridge",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local robot connection for supervised named trips",
+  "engines": { "node": ">=22.9" },
+  "scripts": { "test": "node --test test/*.test.js" }
+}

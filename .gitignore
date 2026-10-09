@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+.robot-local.json
+.robot-runtime/
+.demo-output/
+node_modules/
