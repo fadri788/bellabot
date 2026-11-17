@@ -239,7 +239,7 @@ python -m unittest discover -s dashboard/tests
 |-------|--------|
 | [`docs/notes.md`](docs/notes.md) | Funktionsweise, Zustände, Karte, Zielauswahl, Netzwerk und Port-Scan |
 | [`docs/research.md`](docs/research.md) | Wege zum Programmieren: Cloud API, Private Cloud, PUDU OS SDK |
-| [`docs/jailbreak-log.md`](docs/jailbreak-log.md) | Forschungs-Tagebuch zu Jailbreaking/Rooting |
+| [`docs/zugriffs-recherche.md`](docs/zugriffs-recherche.md) | Forschungs-Tagebuch zu Zugriffswegen und Sicherheit: warum die offiziellen Schnittstellen reichen |
 | [`dashboard/README.md`](dashboard/README.md) | Aufbau, Modi und API des Dashboards |
 | [`robot_bridge/README.md`](robot_bridge/README.md) | Aufruf, Einrichtung, Ports und Sicherheitsregeln der Robot Bridge |
 

@@ -1,4 +1,4 @@
-# Forschungs-Tagebuch: Jailbreak / Rooting
+# Forschungs-Tagebuch: Zugriffswege & Sicherheit
 
 > Hier halte ich fest, was ich zum Thema Jailbreaking/Rooting beim BellaBot recherchiere,
 > beobachte und mit meinem Betreuer bespreche.
