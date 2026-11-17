@@ -37,7 +37,7 @@ benannten Zielen.
 | `test-control.cmd` | Windows-Doppelklick: Bridge-Simulation (ganzer Steuerweg, ohne Roboter) |
 | `start-robot.cmd` | Windows-Doppelklick: beaufsichtigte Fahrten mit dem echten Roboter |
 | `dashboard/` | Flask-Server und Weboberfläche (HTML/CSS/JS), siehe [`dashboard/README.md`](dashboard/README.md) |
-| `robot_bridge/` | Node.js-Dienst: spricht lokal mit Bella (MQTT über TLS) und gibt dem Dashboard Status und Steuerung weiter |
+| `robot_bridge/` | Node.js-Dienst: spricht lokal mit Bella (MQTT über TLS) und gibt dem Dashboard Status und Steuerung weiter, siehe [`robot_bridge/README.md`](robot_bridge/README.md) |
 | `robot_bridge/prepare-robot.ps1` | Einmalige Vorbereitung für den echten Roboter (Konfiguration, Zertifikat, Firewall) |
 | `robot-config.example.json` | Vorlage für die lokale Roboter-Konfiguration `.robot-local.json` |
 | `scripts/pudu_status.py` | Beispiel: Roboterstatus über die Pudu Cloud API abfragen |
@@ -240,7 +240,8 @@ python -m unittest discover -s dashboard/tests
 | [`docs/notes.md`](docs/notes.md) | Funktionsweise, Zustände, Karte, Zielauswahl, Netzwerk und Port-Scan |
 | [`docs/research.md`](docs/research.md) | Wege zum Programmieren: Cloud API, Private Cloud, PUDU OS SDK |
 | [`docs/jailbreak-log.md`](docs/jailbreak-log.md) | Forschungs-Tagebuch zu Jailbreaking/Rooting |
-| [`dashboard/README.md`](dashboard/README.md) | Aufbau und API des Dashboards |
+| [`dashboard/README.md`](dashboard/README.md) | Aufbau, Modi und API des Dashboards |
+| [`robot_bridge/README.md`](robot_bridge/README.md) | Aufruf, Einrichtung, Ports und Sicherheitsregeln der Robot Bridge |
 
 ---
 
